@@ -5,19 +5,27 @@ import 'package:http/http.dart' as http;
 class BookingPage extends StatefulWidget {
 
   final Map room;
+  final String name ;
 
-  const BookingPage({super.key, required this.room});
+  const BookingPage({
+    super.key, 
+    required this.room, 
+    required this.name });
 
   @override
   State<BookingPage> createState() => _BookingPageState();
 }
 
 class _BookingPageState extends State<BookingPage> {
-
-  final nameController = TextEditingController();
+  late TextEditingController nameController;//เพิ่ม
   final dateController = TextEditingController();
   final startController = TextEditingController();
   final endController = TextEditingController();
+@override//เพิ่ม
+  void initState () {
+    super.initState();
+    nameController = TextEditingController(text: widget.name);
+  }
 
   ////////////////////////////////////////////////////////////
   // DATE PICKER
@@ -219,6 +227,7 @@ Widget build(BuildContext context) {
 
             TextField(
               controller: nameController,
+              readOnly: true , //เพิ่ม
               decoration: const InputDecoration(
                 labelText: "ชื่อผู้จอง",
                 border: OutlineInputBorder(),

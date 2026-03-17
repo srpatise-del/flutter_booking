@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'booking_page.dart';
 import 'booking_list.dart';
+import 'login.dart';
 
 //////////////////////////////////////////////////////////////
 // API URL
@@ -267,7 +268,10 @@ trailing: Wrap(
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => BookingPage(room: room),
+            builder: (context) => BookingPage(
+              room : room,
+              name : widget.name
+              ),
           ),
         );
 
