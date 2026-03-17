@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_booking_66713643/login.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'booking_page.dart';
@@ -121,8 +122,20 @@ return Scaffold(
           );
 
         },
-      )
+      ),
+      IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
 
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+                (route) => false,
+              );
+            },
+      ),
     ],
   ),
 
